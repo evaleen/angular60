@@ -1,1 +1,31 @@
-<h1>{{header_title}}</h1>
+<div class="app">
+  <div class="home-title">
+    <h1>Music Genre Search</h1>
+    <span class="app-description">
+      Select a genre to search for songs in that genre!
+    </span>
+  </div>
+
+  <div class="genres">
+    {{status}}
+    <div *ngIf="!showTracks && !loading">
+      <div class="genre" *ngFor="let genre of genres; let i = index">
+        <button
+          class="btn btn-default btn-md genre-button"
+          [ngStyle]="{'background-color': genre.genre_color}"
+          (click)="getTracks(genre.genre_id)"
+        >
+          <span class="genre-text">{{genre.genre_title}}</span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="showTracks">
+          <div *ngFor="let track of tracks; let i = index">
+              <p>{{track.track_title}} - {{track.artist_name}}</p>
+          </div>
+    </div>
+    <div *ngIf="loading">
+      <p>Loading...</p>
+    </div>
+  </div>
+</div>

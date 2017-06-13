@@ -1,5 +1,43 @@
-h1 {
-  color: #369;
+body {
+  background-color: #707070 !important;
+}
+
+.app {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+  color: #fff;
+  padding: 0px 15px;
+}
+
+.home-title {
+  margin: 50px 50px;
+  position: relative;
+}
+
+.app-description {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 25px;
+}
+
+.genre {
+  max-width: 16%;
+  text-align: center;
+  float: left;
+}
+
+.genre-button {
+  color: #fff;
+  float: left;
+  margin: 10px;
+  cursor: pointer;
+  height: 50px;
+}
+
+.genre-button:hover {
+  box-shadow: 4px 4px 3px #505050;
+}
+
+.genre-text {
+  padding: 10px;
 }
