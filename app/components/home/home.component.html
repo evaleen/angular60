@@ -6,16 +6,25 @@
     </span>
   </div>
 
-  <div class="genres">
-    {{status}}
+  <div>
     <div *ngIf="!showTracks && !loading">
-      <div class="genre" *ngFor="let genre of genres; let i = index">
+      <div class="genres">
+        <div class="genre" *ngFor="let genre of genres; let i = index">
+          <button
+            class="btn btn-default btn-md genre-button"
+            [ngStyle]="{'background-color': genre.genre_color}"
+            (click)="getTracks(genre.genre_id)"
+          >
+            <span class="genre-text">{{genre.genre_title}}</span>
+          </button>
+        </div>
+      </div>
+      <div class="show-more" *ngIf="currentGenrePage < totalGenrePages">
         <button
-          class="btn btn-default btn-md genre-button"
-          [ngStyle]="{'background-color': genre.genre_color}"
-          (click)="getTracks(genre.genre_id)"
+          class="btn btn-default btn-lg show-more-btn"
+          (click)="getMoreGenres()"
         >
-          <span class="genre-text">{{genre.genre_title}}</span>
+          <span class="genre-text">Show more</span>
         </button>
       </div>
     </div>

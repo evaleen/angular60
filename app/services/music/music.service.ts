@@ -11,8 +11,8 @@ export class MusicService {
         console.log('MusicService Initialized...');
     }
 
-    getGenres(){
-      return this.http.get(this.generateUrl('genres'))
+    getGenres(pageNumber: number){
+      return this.http.get(`${this.generateUrl('genres')}&page=${pageNumber}`)
         .map(res => res.json());
     }
 

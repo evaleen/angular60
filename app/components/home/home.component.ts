@@ -9,17 +9,27 @@ import { MusicService } from '../../services/music/music.service';
   providers: [MusicService]
 })
 export class HomeComponent  {
-    headerTitle: string;
     genres: genre[];
+    currentGenrePage: number;
+    totalGenrePages: number;
     tracks: track[];
     showTracks: boolean;
     loading: boolean;
 
     constructor(private musicService: MusicService){
-      this.headerTitle = "Music Genre Search";
-      this.musicService.getGenres().subscribe(genres => {
+      this.currentGenrePage = 1;
+      this.musicService.getGenres(this.currentGenrePage).subscribe(genres => {
           this.genres = genres.dataset;
+          this.totalGenrePages = genres.total_pages;
+
       });
+    }
+
+    getMoreGenres() {
+    this.currentGenrePage = this.currentGenrePage + 1;
+    this.musicService.getGenres(this.currentGenrePage).subscribe(genres => {
+        this.genres = this.genres.concat(genres.dataset);
+    });
     }
 
     getTracks(genreId: number) {
