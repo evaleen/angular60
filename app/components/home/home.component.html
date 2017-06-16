@@ -1,9 +1,26 @@
 <div class="app">
   <div class="home-title">
     <h1>Music Genre Search</h1>
-    <span class="app-description">
-      Select a genre to search for songs in that genre!
-    </span>
+    <div *ngIf="!showTracks && !loading">
+      <span class="app-description">
+        Select a genre to search for songs in that genre!
+      </span>
+    </div>
+    <div *ngIf="showTracks || loading">
+      <button
+        class="btn btn-default btn-md back-button"
+        (click)="backToGenres()"
+      >
+        <span class="genre-text">
+          <img
+            class="back-arrow-img"
+            src="app\images\back_arrow.png"
+            alt="back arrow"
+          />
+          Back to genres
+        </span>
+      </button>
+    </div>
   </div>
 
   <div>

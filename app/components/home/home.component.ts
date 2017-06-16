@@ -40,6 +40,11 @@ export class HomeComponent  {
           this.loading = false;
       });
     }
+
+    backToGenres() {
+      this.loading = false;
+      this.showTracks = false;
+    }
  }
 
 interface genre {
