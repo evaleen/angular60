@@ -45,10 +45,38 @@
         </button>
       </div>
     </div>
-    <div *ngIf="showTracks">
-          <div *ngFor="let track of tracks; let i = index">
-              <p>{{track.track_title}} - {{track.artist_name}}</p>
-          </div>
+    <div *ngIf="showTracks" class="tracks">
+      <div
+        class="track"
+        *ngFor="let track of tracks; let i = index"
+      >
+        <img
+          src={{track.track_image_file}}
+          class="track-img"
+          alt="track_img"
+        />
+        <p class="track-title">
+          {{track.track_title}}
+        </p>
+        <p>
+          <a
+          class="track-link"
+          href={{track.artist_url}}
+          target="_blank"
+          >
+            {{track.artist_name}}
+          </a>
+        </p>
+        <p>
+          <a
+            class="track-link"
+            href={{track.album_url}}
+            target="_blank"
+          >
+            {{track.album_title}}
+          </a>
+        </p>
+      </div>
     </div>
     <div *ngIf="loading">
       <p>Loading...</p>

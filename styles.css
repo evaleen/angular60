@@ -61,3 +61,32 @@ body {
   width: 20px;
   margin-right: 10px;
 }
+
+.tracks {
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  background-color: #303030;
+  width: 23%;
+  min-width: 302px;
+  border-radius: 3px;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  min-height: 500px;
+}
+
+.track-img {
+  height: 282px;
+  width: 282px;
+}
+
+.track-title {
+  font-size: x-large;
+}
+
+.track-link, .track-link:hover {
+  color: #fff;
+}
